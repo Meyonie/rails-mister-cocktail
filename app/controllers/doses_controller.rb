@@ -6,6 +6,7 @@ class DosesController < ApplicationController
 
   # routes to #create
   def create
+
   end
 
   # routes to #destroy

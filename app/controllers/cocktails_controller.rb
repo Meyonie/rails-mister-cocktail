@@ -16,20 +16,21 @@ class CocktailsController < ApplicationController
   # routes to #create
   def create
     cocktail = Cocktail.new(cocktail_params)
-      if @cocktail.save
-        redirect_to cocktail_path(@cocktail)
-      else
-        render :new
-      end
+    if @cocktail.save
+      redirect_to cocktail_path(@cocktail)
+    else
+      render :new
     end
+  end
 
   def destroy
-        @cocktail.destroy
-        redirect_to cocktails_path
-      end
+    @cocktail.destroy
+    redirect_to cocktails_path
+  end
 
-private
+  private
 
   def cocktail_params
     params.require(:cocktail).permit(:name, photos: [])
   end
+end

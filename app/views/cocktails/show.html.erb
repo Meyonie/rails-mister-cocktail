@@ -1,14 +1,7 @@
+<h1> <%= @cocktail.name.capitalize %> </h1>
 
-    <!-- Add cocktail form -->
-    <div class="pad20" id="ingredient-form">
-      <div class="row">
-        <div class="col-xs-12 col-md-4">
-          <%= simple_form_for [@cocktail, @dose] do |f| %>
-            <%= f.input :ingredient, collection: Ingredient.order(:name),  prompt: "Pick one from list" %>
-            <%= f.input :description %>
-            <%= f.submit "Submit", class: "btn btn-primary" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-</div>
+<ul>
+  <% @cocktail.ingredients.each do |ingredient| %>
+    <li><%= ingredient.name %></li>
+  <% end %>
+</ul>
