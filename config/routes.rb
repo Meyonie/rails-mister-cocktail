@@ -1,19 +1,19 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # routes to #index
-  get '/cocktails', 'cocktails#index'
+  get '/cocktails', to: 'cocktails#index'
 
   # routes to #show
-  get '/cocktails/:id', 'cocktails#show'
+  get '/cocktails/:id', to: 'cocktails#show'
 
   # routes to #new
-  get '/cocktails/new', 'cocktails#new'
+  get '/cocktails/new', to: 'cocktails#new'
 
   # routes to #create
-  post '/cocktails', 'cocktails#create'
+  post '/cocktails', to: 'cocktails#create'
 
   # routes to #destroy
-  delete '/cocktails/:id', 'cocktails#destroy'
+  delete '/cocktails/:id', to: 'cocktails#destroy'
 end
 
 #  Prefix  Verb    URI Pattern            Controller#Action

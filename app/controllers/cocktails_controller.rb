@@ -1,33 +1,35 @@
 class CocktailsController < ApplicationController
   # routes to #index
+  def index
+    @cocktails = Cocktail.all
+  end
 
   # routes to #show
+  def show
+    @cocktail = Cocktail.find(params[:id])
+  end
 
   def new
-    # we need @restaurant in our `simple_form_for`
-    @cocktail = Cocktail.find(params[:ingredients_id])
-    # @cocktail = Cocktail.new
+    @cocktail = Cocktail.new
   end
 
   # routes to #create
   def create
-    @cocktails = cocktails.new(cocktails_params)
-    # we need `restaurant_id` to asssociate cocktails with corresponding restaurant
-    @cocktails.ingredients = ingredients.find(params[:ingredients_id])
-    @cocktails.save
+    cocktail = Cocktail.new(cocktail_params)
+      if @cocktail.save
+        redirect_to cocktail_path(@cocktail)
+      else
+        render :new
+      end
+    end
+
+  def destroy
+        @cocktail.destroy
+        redirect_to cocktails_path
+      end
+
+private
+
+  def cocktail_params
+    params.require(:cocktail).permit(:name, photos: [])
   end
-
-  private
-
-end
-
-
-
-
-
-  private
-
-  def review_params
-    # params.require(:review).permit(:content)
-  end
-end
