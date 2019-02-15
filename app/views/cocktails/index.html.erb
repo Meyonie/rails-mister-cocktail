@@ -1,7 +1,20 @@
-<h1> Cocktails on fleek </h1>
+
+<div>
+  <img src="url(images/verre_de_rhum.jpg)" />
+    <h1 class="show-title"> Cocktails on fleek </h1>
+</div>
+
+
+
+
 
 <ul>
   <% @cocktails.each do |cocktail| %>
     <li><%= cocktail.name.capitalize %></li>
+    <%= link_to 'Voir le cocktail', cocktail_path(cocktail) %> | <%= link_to "Supprimer le cocktail", cocktail_path(cocktail),
+      method: :delete,
+      data: { confirm: "Vraiment?" } %>
+
   <% end %>
 </ul>
+

@@ -9,3 +9,27 @@
 Ingredient.create(name: "lemon")
 Ingredient.create(name: "ice")
 Ingredient.create(name: "mint leaves")
+
+Ingredient.create(name: "rhum")
+Ingredient.create(name: "vodka")
+Ingredient.create(name: "whiskey")
+Ingredient.create(name: "cuiração")
+Ingredient.create(name: "gin")
+
+Ingredient.create(name: "lemonade")
+Ingredient.create(name: "orange juice")
+Ingredient.create(name: "coco")
+
+Ingredient.create(name: "brown sugar")
+Ingredient.create(name: "strawberry")
+Ingredient.create(name: "violette")
+
+leonie = Cocktail.create(name: "léonie")
+ingredient = Ingredient.create(name: "Rhum avec du Rhum et du Rhum.")
+dose = Dose.new(description: "1 L")
+dose.ingredient = ingredient
+dose.cocktail = leonie
+dose.save
+
+# @ingredients.each { |ingredient| Ingredient.create(name: ingredient) }
+# @cocktails.each { |cocktail| Cocktail.create(cocktail) }
